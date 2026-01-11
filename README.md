@@ -1,0 +1,2 @@
+- 自己部署[![Deploy to Vercel](https://vercel.com/button)](https://vercel.com/import/project?template=https://github.com/wbmins/etag-trans)
+- [使用说明](https://etag-trans.vercel.app/)
