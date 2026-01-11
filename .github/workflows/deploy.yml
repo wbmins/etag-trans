@@ -7,7 +7,11 @@ on:
 
 jobs:
   build-and-deploy:
+    permissions:
+      contents: write
     runs-on: ubuntu-latest
+    env:
+      TZ: Asia/Shanghai
 
     steps:
       - name: Checkout repository
@@ -20,3 +24,18 @@ jobs:
         run: |
           go mod tidy
           go run main.go
+      - name: Configure Git
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+      - name: Commit changes
+        run: |
+          git add .
+          TIMESTAMP=$(date '+%Y-%m-%d %H:%M:%S')
+          git commit -m "$TIMESTAMP" || echo "No changes to commit"
+      - name: Push changes
+        uses: ad-m/github-push-action@v0.6.0
+        with:
+          force: true
+          branch: main
+          github_token: ${{ secrets.GITHUB_TOKEN }}
