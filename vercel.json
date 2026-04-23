@@ -1,3 +1,14 @@
 {
-  "version": 2
+  "builds": [
+    {
+      "src": "api/query.go",
+      "use": "@vercel/go"
+    }
+  ],
+  "routes": [
+    {
+      "src": "^/api/query$",
+      "dest": "api/query.go"
+    }
+  ]
 }

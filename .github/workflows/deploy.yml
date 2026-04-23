@@ -23,7 +23,7 @@ jobs:
       - name: Run Go main.go
         run: |
           go mod tidy
-          go run main.go
+          go run ./cmd/main.go
       - name: Configure Git
         run: |
           git config user.name "github-actions"
