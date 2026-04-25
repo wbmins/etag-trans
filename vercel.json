@@ -1,14 +1,10 @@
 {
   "builds": [
-    {
-      "src": "api/query.go",
-      "use": "@vercel/go"
-    }
+    { "src": "api/query.go", "use": "@vercel/go" },
+    { "src": "index.html", "use": "@vercel/static" }
   ],
   "routes": [
-    {
-      "src": "^/api/query$",
-      "dest": "api/query.go"
-    }
+    { "handle": "filesystem" },
+    { "src": "^/$", "dest": "/index.html" }
   ]
 }
