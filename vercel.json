@@ -4,6 +4,7 @@
     { "src": "index.html", "use": "@vercel/static" }
   ],
   "routes": [
+    { "src": "^/api/query", "dest": "/api/query.go" },
     { "handle": "filesystem" },
     { "src": "^/$", "dest": "/index.html" }
   ]
